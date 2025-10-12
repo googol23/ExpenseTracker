@@ -1,0 +1,19 @@
+# Ignore VSCode connfig
+.vscode/
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore all image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.webp
+
+# Ignore all databases files
+*.db

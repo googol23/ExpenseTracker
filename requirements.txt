@@ -1,0 +1,6 @@
+pydantic
+typing_extensions
+numba
+numpy
+pandas
+pytest
