@@ -4,3 +4,4 @@ numba
 numpy
 pandas
 pytest
+flask
