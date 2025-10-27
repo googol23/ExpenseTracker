@@ -113,7 +113,3 @@ def get_settlements(tracker):
     settlements = calculate_settlements(df)
     return jsonify(settlements)
 
-
-if __name__ == '__main__':
-    # Allow running from project root: `python web/app.py`
-    app.run(host='0.0.0.0', port=5000, debug=True)

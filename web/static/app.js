@@ -8,12 +8,23 @@ const api = {
 async function fetchMembers() {
   const res = await fetch(api.members);
   const names = await res.json();
+  
+  // Update member list
   const ul = document.getElementById('member-list');
   ul.innerHTML = '';
   names.forEach(n => {
     const li = document.createElement('li');
     li.textContent = n;
     ul.appendChild(li);
+  });
+
+  // Update datalist for autocomplete
+  const datalist = document.getElementById('members-list');
+  datalist.innerHTML = '';
+  names.forEach(name => {
+    const option = document.createElement('option');
+    option.value = name;
+    datalist.appendChild(option);
   });
 }
 
@@ -97,6 +108,18 @@ document.getElementById('add-expense-form').addEventListener('submit', async (e)
   document.getElementById('expense-amount').value = '';
   document.getElementById('expense-paid-by').value = '';
   document.getElementById('split-input').value = '';
+  
+  // Refresh the expenses and balances display
+  await Promise.all([fetchExpenses(), fetchBalances()]);
+});
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', async () => {
+  await Promise.all([
+    fetchMembers(),
+    fetchExpenses(),
+    fetchBalances()
+  ]);
 
   await fetchExpenses();
   await fetchBalances();

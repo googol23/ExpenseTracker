@@ -33,7 +33,8 @@
         <form id="add-expense-form">
           <input id="expense-desc" placeholder="Description" required />
           <input id="expense-amount" placeholder="Amount" type="number" step="0.01" required />
-          <input id="expense-paid-by" placeholder="Paid by (exact name)" required />
+          <input id="expense-paid-by" placeholder="Paid by" list="members-list" required />
+          <datalist id="members-list"></datalist>
 
           <label>Split method</label>
           <select id="split-method">
